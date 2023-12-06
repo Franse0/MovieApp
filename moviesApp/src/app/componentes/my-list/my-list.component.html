@@ -1,0 +1,13 @@
+<div class="list-container "  [ngClass]="{'toggle-my-list': myList}">
+    <div class="cards-container" >
+        <div class="card-list" *ngFor="let movie of listMovies" [routerLink]="['/movie', movie.id]" (click)="closeNavAndList()">
+            <img [src]="movie.img" alt="" class="img-list" > 
+            <h5 >{{movie.title}} </h5>
+            <button class="btn-add" title="agregar a lista" (click)="toggleLocalStorage(movie.id, movie.title, movie.img)">
+                <span >{{isInLocalStorage(movie.id) ? '-' : '+'}}</span>
+                {{isInLocalStorage(movie.id) ? 'Remove' : 'Add'}} List
+            </button>
+        </div>
+        
+    </div>
+</div>

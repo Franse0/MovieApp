@@ -1,0 +1,27 @@
+
+<header>
+       <div class="header-container">
+        <div class="logo-container">
+            <span class="logo"> <i class="fa-solid fa-film"></i>MovieApp</span>
+        </div>
+        <div>
+            <div class="div">
+                
+            <div class="bars-container">
+                <i class="fa-solid fa-bars" (click)="toggleNav()"></i>
+            </div>
+            <span class="nav-item my-list phone" (click)="toggleList()">My list</span>
+            
+            </div>
+        </div>
+        <nav  [ngClass]="{'toggle-nav':navOpen}" class="nav">
+            <ul class="nav-links ">
+                <li><a routerLink="/main" class="nav-item" (click)="closeNavAndList()">Home</a></li>
+                <li><a href="#peliculas" class="nav-item" >Movies</a></li>
+            </ul>
+        </nav>
+        <span class="nav-item my-list desktop" (click)="toggleList()">My list</span>
+
+    </div>
+</header>
+<app-my-list [myList]="myListOpen" class="myList"  ></app-my-list>

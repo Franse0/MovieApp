@@ -1,0 +1,46 @@
+<div class="all-container">
+    <div class="start" id="start">
+        <div class="title-container">
+            <h3>Recomendation</h3>
+        </div>
+        <div class="layout-recomendation">
+            <div class="left">
+                <div class="img-container" [routerLink]="['/movie', movie?.id]">
+                    <div class="overlay"><div class="more-info">
+                        <p>{{movie?.description}}</p>
+                    </div>
+                </div>
+                    <img [src]='movie?.img' alt="" class="img-recomended">
+                    <h4 class="in-desktop link"[routerLink]="['/movie', movie?.id]">{{movie?.title}}</h4>
+                    <div class="info">
+                        <button class="btn-add in-desktop" title="agregar a lista" (click)="toggleLocalStorage(movie?.id, movie?.title, movie?.img)" >
+                            <span >{{isInLocalStorage(movie?.id) ? '-' : '+'}}</span>
+                            {{isInLocalStorage(movie?.id) ? 'Remove' : 'Add'}} List
+                        </button>
+                        
+                    </div>
+                </div>
+               
+                
+            </div>
+            <div class="right">
+                <!-- eslint-disable-next-line angular/no-safe-resource-url -->
+                <iframe [src]="sanitizedYoutubeVideoUrl"></iframe>
+                <h3 class="in-phone link" [routerLink]="['/movie', movie?.id]">{{movie?.title}}</h3>
+                <div class="info-container">
+                    <span><i class="fa-solid fa-star"></i> {{movie?.rating}}</span>
+                    <span><i class="fa-regular fa-clock"></i> {{movie?.duration}} </span>
+                    <span><i class="fa-solid fa-check"></i> {{movie?.genre}} </span>
+                    <span><i class="fa-solid fa-calendar-days"></i> {{movie?.released_date}} </span>
+                </div>
+                <div class="info">
+                    <button class="btn-add .in-phone" title="agregar a lista" (click)="toggleLocalStorage(movie?.id, movie?.title, movie?.img)">
+                        <span >{{isInLocalStorage(movie?.id) ? '-' : '+'}}</span>
+                        {{isInLocalStorage(movie?.id) ? 'Remove' : 'Add'}} List
+                    </button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

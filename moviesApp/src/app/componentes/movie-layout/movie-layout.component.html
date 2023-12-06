@@ -1,0 +1,39 @@
+<div class="all-container">
+    <section class="movie" *ngIf="movie">
+        <div class="movie-card">
+            <div class="movie-card-top">
+                <div class="video-container">
+                    <iframe  [src]="sanitizedYoutubeVideoUrl" ></iframe>
+                </div>
+                <div class="img-container desktop" >
+                    <img src="{{movie.img}}" alt="" class="img-movie"> 
+                </div> 
+            </div>
+            <div class="movie-card-bottom">
+                <div class="img-container no-img"  >
+                    <img src="{{movie.img}}" alt="" class="img-movie"> 
+                </div>
+                <button class="btn-add movil " title="agregar a lista" (click)="toggleLocalStorage(movie.id, movie.title, movie.img)">
+                    <span >{{isInLocalStorage(movie.id) ? '-' : '+'}}</span>
+                    {{isInLocalStorage(movie.id) ? 'Remove' : 'Add'}} List
+                </button>
+                <div class="div">
+                    <div class="info-container-a">
+                        <h4 style="text-align: center;">{{movie.title}} </h4>
+                        <p>{{movie.description}} </p>
+                    </div>
+                    <div class="info-container-b">
+                        <span><i class="fa-solid fa-star"></i> {{movie.rating}}</span>
+                        <span><i class="fa-regular fa-clock"></i> {{movie.duration}} </span>
+                        <span><i class="fa-solid fa-calendar-days"></i> {{movie.genre}} </span>
+                        <span><i class="fa-solid fa-calendar-days"></i> {{movie.released_date}} </span>
+                    </div>
+                    <button class="btn-add" title="agregar a lista" (click)="toggleLocalStorage(movie.id, movie.title, movie.img)">
+                        <span >{{isInLocalStorage(movie.id) ? '-' : '+'}}</span>
+                        {{isInLocalStorage(movie.id) ? 'Remove' : 'Add'}} List
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

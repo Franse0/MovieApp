@@ -1,0 +1,152 @@
+header{
+    width: 100%;
+    background: linear-gradient(to bottom, black,rgb(32, 32, 56));
+}
+
+.header-container{
+    height: 60px;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content:space-between;
+    padding: .2rem 1rem;
+    align-items:flex-end;
+    color: white;
+}
+
+.logo-container>span{
+    font-size:20px;
+}
+
+.div{
+    display: flex;
+    flex-direction: row;
+}
+.fa-bars{
+    font-size: 2rem;
+    cursor: pointer;
+}
+nav{
+    position: absolute;
+    top:60px;
+    left: 0;
+    right: 0;
+    height: 50%;
+    transform: translateY(-150%);
+    opacity: 0;
+    transition: .3s;
+    width: 100%;
+    z-index: 20;
+    background-color: black;
+}
+
+.nav-links{
+    width: 100vw;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15%;
+    z-index: 7;
+}
+
+.toggle-nav{
+    transform: translateY(0);
+    opacity: .9;
+}
+
+.toggle-list{
+    transform: translateY(0);
+    opacity: .8;
+}
+
+.nav-item{
+    cursor: pointer;
+}
+
+.desktop{
+    display: none;
+}
+
+
+
+.my-list{
+    padding: 1rem 0 0 1rem;
+    font-weight: bold;
+    transform: translateY(-4px);
+}
+ @media (min-width:780px){
+    .bars-container{
+        display: none;
+    }
+    nav{
+        position: static;
+        transform: translateY(0);
+        opacity: 1;
+        width: auto;
+        background: none;
+    }
+    
+    .nav-links{
+        flex-direction: row;
+        justify-content: start;
+        gap:20px;
+        width: auto;
+        padding:  0rem 1rem  ;
+        transform: translateY(5px);
+    }
+
+    .my-list{
+        padding: 0;
+        transform: translateY(4px);
+    }
+    
+    .nav-item {
+        position: relative;
+        text-decoration: none;
+      }
+      
+      .nav-item::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px; 
+        background-color: white; 
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0); 
+        transition: transform .1s ease; 
+      }
+      
+      .nav-item:hover::before {
+        transform: scaleX(1); 
+      }
+
+      .header-container{
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-end;
+        padding-bottom: .3rem;
+      }
+ 
+
+      .desktop{
+        display: block;
+      }
+
+      .phone{
+        display: none;
+      }
+
+      .logo-container>span{
+        font-size: 1.7em;
+        font-weight: bold;
+        margin-right: 2rem;
+      }
+} 
+
+
